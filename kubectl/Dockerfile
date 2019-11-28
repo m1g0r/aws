@@ -13,7 +13,8 @@ LABEL com.github.actions.color="yellow"
 COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 
 RUN apt-get update -y && \
-    apt-get install -y curl gnupg && \
+    apt-get install -y curl gnupg python3 python3-pip && \
+    pip install awscli && \
     curl -Lso /bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.11.5/2018-12-06/bin/linux/amd64/aws-iam-authenticator && \
     chmod +x /bin/aws-iam-authenticator && \
     apt-get clean && \
